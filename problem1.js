@@ -1,3 +1,5 @@
+// pattern printing
+
 const readline = require("readline");
 
 const r1 = readline.createInterface({

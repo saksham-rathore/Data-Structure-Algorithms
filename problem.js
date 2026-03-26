@@ -1,27 +1,26 @@
 const readline = require("readline");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+const r1 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
 });
 
-rl.question("enter a value: ", (answer) => {
-    let n = Number(answer);   // ✅ convert to number
-    let i = 1;
-    let j = 1;
+r1.question("Enter value: ", (answer) => {
+    let n = Number(answer);
 
-    while (i <= n) {
-        console.log(i);
-        i++;
+    let row = 1;
 
-        while (j <= i) {
-            console.log(i);
-            i++;
+    while (row <= n) {
+        let col = 1;
+
+        while (col <= n) {
+            process.stdout.write(row + " ");
+            col = col + 1;
         }
+
+        console.log(); // same as cout << endl
+        row = row + 1;
     }
 
-    console.log(n);  // ✅ correct addition
-
-  rl.close();
-
+    r1.close();
 });

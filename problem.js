@@ -13,12 +13,12 @@ r1.question("Enter value: ", (answer) => {
     while (row <= n) {
         let col = 1;
 
-        while (col <= n) {
-            process.stdout.write(row + " ");
+        while (col <= row) {
+            process.stdout.write(col + " ");
             col = col + 1;
         }
 
-        console.log(); // same as cout << endl
+        console.log();
         row = row + 1;
     }
 

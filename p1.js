@@ -1,13 +1,3 @@
-const constants = require("constants");
-const readline = require("readline");
+let arr = [1,2,2,1]
 
-const r1 = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-r1.question("enter the value: ", (answer) => {
-  let n = Number(answer);
-
-  
-});
+const while

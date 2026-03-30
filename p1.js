@@ -13,30 +13,43 @@ Product of digits = 2 * 3 * 4 = 24
 Sum of digits = 2 + 3 + 4 = 9 
 Result = 24 - 9 = 15
 
-*/
+*/ 
 
-const readline = require("readline");
 
-const r1 = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// var subtractProductAndSum = function(n) {
+//     let sum = 0;
+//     let product = 1;
 
-r1.question("Enter value: ", (answer) => {
-  let n = Number(answer);
-  function reverseNumber(n) {
-    let reverse = 0;
+//     while (n > 0) {
+//         let digit = n % 10;
 
-    while (n > 0) {
-      let digit = n % 10;
-      reverse = reverse * 10 + digit;
-      n = Math.floor(n / 10);
+//         sum += digit;        // add
+//         product *= digit;    // multiply
+
+//         n = Math.floor(n / 10);
+//     }
+
+//     return product - sum;
+// };
+
+// subtractProductAndSum(45678);
+
+
+
+
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var subtractProductAndSum = function(n) {
+    let number = 234;
+    let sums = [];
+
+    while (n < 0) {
+        let sum = number % 10
+        sums.push(sum);
+        number = Math.floor(number / 10)
+        console.log(sums);
     }
-
-    return reverse;
-  }
-
-  console.log(reverseNumber(n)); // 321
-
-  r1.close();
-});
+};

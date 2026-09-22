@@ -21,15 +21,10 @@ Output: "56088"
  */
 var multiply = function(num1, num2) {
 
-    const 
-};
 
+};
 
 const num1 = "123";
 const num2 = "456";
 
-for (let i = 0; i < num1.length; i++) {
-    const digit1 = Number(num1[i]);
-
-    console.log(digit1);
-}
+const a = num

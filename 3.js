@@ -27,10 +27,20 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    const str = "abcdefghijklmnopqrstuvwxyz"
+    let left = 0;
+    let maxlength = 0;
+    const seen = new Set();
 
-    for (let i = a; i < str.length; i++) {
-        const char = str[i];
+    for (let right = 0; right < s.length; right++) {
+        const char = s[right];
+
+        while (seen.has(char)) {
+            seen.delete(s[left]);
+            left++;
+        }
+        seen.add(char);
+
+        maxlength = Math.max(maxlength, right - left + 1);
     }
-    return char;
+    return maxlength;
 };

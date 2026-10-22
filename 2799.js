@@ -32,33 +32,22 @@ Explanation: The array consists only of the integer 5, so any subarray is comple
  * @param {number[]} nums
  * @return {number}
  */
-var countCompleteSubarrays = function(nums) {
-    const distinctCount = new Set(nums).size;
-    const frequencies = new Map();
-    let left = 0;
-    let result = 0;
+var countCompleteSubarrays = function (nums) {
+    const Unique = new Set(nums);
+    const requiredCount = Unique.size;
+    let count = 0;
 
-    for (let right = 0; right < nums.length; right++) {
-        const num = nums[right];
-        frequencies.set(num, (frequencies.get(num) || 0) + 1);
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = 0; j < nums.length; j++) {
+            const subarray = nums.slice(i, j + 1);
+            const UniqueSubarray = new Set(subarray);
 
-        while (frequencies.size === distinctCount) {
-            result += nums.length - right;
-
-            const leftNum = nums[left];
-            const count = frequencies.get(leftNum) - 1;
-            if (count === 0) {
-                frequencies.delete(leftNum);
-            } else {
-                frequencies.set(leftNum, count);
+            if (UniqueSubarray.size === requiredCount) {
+                console.log(subarray);
+                count++
             }
-            left++;
-        }
-    }
-
-    return result;
+        };
+    };
+    return count;
 };
 
-const nums = [1, 3, 1, 2, 2];
-
-console.log(countCompleteSubarrays(nums)); // 4

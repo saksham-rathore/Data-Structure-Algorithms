@@ -1,12 +1,7 @@
 /*
 49. Group Anagrams
-Medium
-Topics
-premium lock icon
-Companies
-Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
- 
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
 Example 1:
 
@@ -36,6 +31,18 @@ Output: [["a"]]
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
-    
+var groupAnagrams = function (strs) {
+    const map = new Map();
+
+    for (const str of strs) {
+        const key = str.split("").sort().join("");
+
+        if (map.has(key)) {
+            map.get(key).push(str);
+        } else {
+            map.set(key, [str]);
+        }
+    }
+
+    return Array.from(map.values());
 };

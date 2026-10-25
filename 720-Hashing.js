@@ -23,6 +23,26 @@ Explanation: Both "apply" and "apple" can be built from other words in the dicti
  * @param {string[]} words
  * @return {string}
  */
-var longestWord = function(words) {
-    
+var longestWord = function (words) {
+    const set = new Set(words);
+    let answer = "";
+
+    words.sort();
+
+    for (const word of words) {
+        let valid = true;
+
+        for (let i = 1; i <= word.length; i++) {
+            const prefix = word.slice(0, i);
+
+            if (!set.has(prefix)) {
+                valid = false;
+                break;
+            }
+        }
+        if (valid && word.length > answer.length) {
+            answer = word;
+        }
+    };
+    return answer;
 };
